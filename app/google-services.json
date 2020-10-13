@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "142209667708",
+    "firebase_url": "https://bachelorcalculatoradmin.firebaseio.com",
+    "project_id": "bachelorcalculatoradmin",
+    "storage_bucket": "bachelorcalculatoradmin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:142209667708:android:72322a76a4cc7d36a3eff9",
+        "android_client_info": {
+          "package_name": "com.example.bp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "142209667708-83ahs2r07mkm308b0o6bihs0pqpdlq6b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bp",
+            "certificate_hash": "824b9e9c3a1cf58e52e56823f1a575365d229c54"
+          }
+        },
+        {
+          "client_id": "142209667708-ftvoo8rvgnnuipuq284pe9val4gmsc7a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1E-O5V4msIzbJMElXA6KGg4psqVlB9j4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "142209667708-ftvoo8rvgnnuipuq284pe9val4gmsc7a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
