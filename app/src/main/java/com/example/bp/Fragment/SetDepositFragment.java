@@ -90,7 +90,7 @@ public class SetDepositFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String amount=binding.amoutTxt.getText().toString();
-                if (!amount.isEmpty() && amount.matches("^[0-9]*$")){
+                if (!amount.isEmpty() && amount.matches("^[-\\d][0-9]*$")){
                     binding.saveButton.setEnabled(false);
                     Map<String ,String> deposit=new HashMap<>();
                     deposit.put("amount",amount);
