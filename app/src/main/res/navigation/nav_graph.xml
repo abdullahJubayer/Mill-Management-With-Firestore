@@ -30,4 +30,16 @@
         android:id="@+id/loginFragment"
         android:name="com.example.bp.Fragment.LoginFragment"
         android:label="LoginFragment" />
+    <fragment
+        android:id="@+id/setDepositFragment"
+        android:name="com.example.bp.Fragment.SetDepositFragment"
+        android:label="SetDepositFragment" />
+    <fragment
+        android:id="@+id/setMillFragment"
+        android:name="com.example.bp.Fragment.SetMillFragment"
+        android:label="SetMillFragment" />
+    <fragment
+        android:id="@+id/setTodayBazar"
+        android:name="com.example.bp.Fragment.SetTodayBazar"
+        android:label="SetTodayBazar" />
 </navigation>

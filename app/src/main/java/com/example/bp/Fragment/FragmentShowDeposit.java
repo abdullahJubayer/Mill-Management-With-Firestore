@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -23,6 +25,7 @@ import com.example.bp.DataModel.Expences;
 import com.example.bp.DataModel.RecyclerModel;
 import com.example.bp.DataModel.User;
 import com.example.bp.Listener.ProgressbarListner;
+import com.example.bp.R;
 import com.example.bp.ViewModel.HomeViewModel;
 import com.example.bp.databinding.FragmentShowDepositBinding;
 import com.google.firebase.firestore.EventListener;
@@ -57,6 +60,18 @@ public class FragmentShowDeposit extends Fragment implements ProgressbarListner 
                     totalExpences += Double.parseDouble(exp.getAmount());
                 }
                 getUserData();
+            }
+        });
+
+        binding.drawerIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DrawerLayout drawerLayout= requireActivity().findViewById(R.id.nav_drawer_layout);
+                if (drawerLayout.isDrawerOpen(GravityCompat.START)){
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                }else {
+                    drawerLayout.openDrawer(GravityCompat.START);
+                }
             }
         });
     }

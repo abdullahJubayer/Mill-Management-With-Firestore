@@ -7,166 +7,275 @@
     android:id="@+id/root_layout"
     >
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ImageView
         android:id="@+id/backgrount_id"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/guideline"
-        android:background="@drawable/sign_up_back"
-        android:scaleType="fitXY"
-        >
-        <ImageView
-            android:id="@+id/ic_back_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/ic_back_icon"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
-            />
-        <TextView
-            android:id="@+id/back_txt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:text="Back"
-            android:textSize="18sp"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:typeface="serif"
-            app:layout_constraintStart_toEndOf="@id/ic_back_button"
-            app:layout_constraintTop_toTopOf="@id/ic_back_button"
-            app:layout_constraintBottom_toBottomOf="@id/ic_back_button"
-
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Create New Account"
-            android:textSize="18sp"
-            android:textColor="@color/white"
-            android:typeface="serif"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginStart="24dp"
-            android:layout_marginBottom="24dp"
-
-            />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/guideline2"
+        android:background="@drawable/login_back"
+        android:scaleType="fitXY"/>
+    <ImageView
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_back_icon"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:visibility="gone"
+        />
+    <TextView
+        android:id="@+id/welcome_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="Back"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:typeface="serif"
+        app:layout_constraintStart_toEndOf="@id/back_button"
+        app:layout_constraintTop_toTopOf="@id/back_button"
+        app:layout_constraintBottom_toBottomOf="@id/back_button"
+        android:visibility="gone"
+        />
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_back_icon"
+        android:padding="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        />
+    <TextView
+        android:id="@+id/back_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:textSize="16sp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="5dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:typeface="serif"
+        app:layout_constraintStart_toEndOf="@id/back"
+        app:layout_constraintTop_toTopOf="@id/back"
+        app:layout_constraintBottom_toBottomOf="@id/back"
+        />
+
+    <TextView
+        android:id="@+id/bachelor_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="Bachelor Engineer"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:typeface="serif"
+        app:layout_constraintStart_toStartOf="@id/welcome_id"
+        app:layout_constraintBottom_toBottomOf="@id/guideline"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:id="@+id/create_new_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="Create New Account"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:typeface="serif"
+        app:layout_constraintStart_toStartOf="@id/back"
+        app:layout_constraintBottom_toBottomOf="@id/guideline2" />
+
+    <ImageView
+        android:id="@+id/user_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="48dp"
+        android:src="@drawable/ic_user_logo"
+        app:layout_constraintBottom_toTopOf="@id/pass_logo"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/guideline"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:padding="30dp"
+        app:layout_constraintVertical_bias="0.00999999" />
+
+    <EditText
+        android:id="@+id/user_et"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="48dp"
+        app:layout_constraintStart_toEndOf="@id/user_logo"
+        app:layout_constraintTop_toTopOf="@id/user_logo"
+        app:layout_constraintBottom_toBottomOf="@id/user_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:hint="User Name"
+        android:inputType="textEmailAddress"
+        />
+
+    <ImageView
+        android:id="@+id/pass_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:src="@drawable/ic_lock"
+        app:layout_constraintBottom_toTopOf="@id/email_logo"
+        app:layout_constraintEnd_toEndOf="@id/user_logo"
+        app:layout_constraintStart_toStartOf="@id/user_logo"
+        app:layout_constraintTop_toBottomOf="@id/user_logo" />
+
+    <EditText
+        android:id="@+id/pass_et"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="48dp"
+        android:hint="Password"
+        app:layout_constraintStart_toEndOf="@id/pass_logo"
+        app:layout_constraintTop_toTopOf="@id/pass_logo"
+        app:layout_constraintBottom_toBottomOf="@id/pass_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:backgroundTint="@color/colorPrimaryDark"
+        />
+
+    <ImageView
+        android:id="@+id/email_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:src="@drawable/ic_email"
+        app:layout_constraintStart_toStartOf="@id/pass_logo"
+        app:layout_constraintEnd_toEndOf="@id/pass_logo"
+        app:layout_constraintTop_toBottomOf="@id/pass_logo"
+        />
+
+    <EditText
+        android:id="@+id/email_et"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="48dp"
+        android:hint="Email"
+        app:layout_constraintStart_toEndOf="@id/email_logo"
+        app:layout_constraintTop_toTopOf="@id/email_logo"
+        app:layout_constraintBottom_toBottomOf="@id/email_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:backgroundTint="@color/colorPrimaryDark"
+
+        />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/login_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/email_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:cardElevation="2dp"
+        app:cardCornerRadius="4dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="48dp"
+        android:visibility="gone"
         >
-
-        <ImageView
-            android:id="@+id/user_logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:src="@drawable/ic_user_logo"
-            app:layout_constraintBottom_toTopOf="@id/pass_logo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-             />
-        
-        <EditText
-            android:id="@+id/user_name_id"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            app:layout_constraintStart_toEndOf="@id/user_logo"
-            app:layout_constraintTop_toTopOf="@id/user_logo"
-            app:layout_constraintBottom_toBottomOf="@id/user_logo"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            />
-
-        <ImageView
-            android:id="@+id/pass_logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_lock"
-            android:layout_marginTop="30dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/user_name_id"
-            />
-
-        <EditText
-            android:id="@+id/pass_id"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            app:layout_constraintStart_toEndOf="@id/pass_logo"
-            app:layout_constraintTop_toTopOf="@id/pass_logo"
-            app:layout_constraintBottom_toBottomOf="@id/pass_logo"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:backgroundTint="@color/colorPrimaryDark"
-            />
-
-        <ImageView
-            android:id="@+id/email_logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:src="@drawable/ic_email"
-            app:layout_constraintBottom_toBottomOf="@id/registerButton_button"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/pass_id"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            app:layout_constraintStart_toEndOf="@id/email_logo"
-            app:layout_constraintTop_toTopOf="@id/email_logo"
-            app:layout_constraintBottom_toBottomOf="@id/email_logo"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:backgroundTint="@color/colorPrimaryDark"
-            />
-
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/registerButton_button"
+        <TextView
+            android:id="@+id/login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:cardElevation="2dp"
-            app:cardCornerRadius="4dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="50dp"
-            >
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Login"
-                android:textAllCaps="true"
-                android:textSize="25sp"
-                android:typeface="serif"
-                android:gravity="center_horizontal"
-                android:padding="10dp"
-                android:textColor="@color/white"
-                android:background="#00A79B"
-                />
-        </androidx.cardview.widget.CardView>
+            android:text="SignUP"
+            android:textAllCaps="true"
+            android:textSize="22sp"
+            android:typeface="serif"
+            android:gravity="center_horizontal"
+            android:padding="8dp"
+            android:textColor="@color/white"
+            android:background="#00A79B"
+            android:visibility="gone"
+            android:enabled="false"
+            />
+    </androidx.cardview.widget.CardView>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/sign_up_butoon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/email_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:cardElevation="2dp"
+        app:cardCornerRadius="4dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="48dp"
+        >
+        <TextView
+            android:id="@+id/signUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SignUP"
+            android:textAllCaps="true"
+            android:textSize="22sp"
+            android:typeface="serif"
+            android:gravity="center_horizontal"
+            android:padding="8dp"
+            android:textColor="@color/white"
+            android:background="#00A79B"
+            />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/dont_have_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Don't have an account?"
+        android:textAllCaps="false"
+        android:textSize="12sp"
+        android:typeface="serif"
+        app:layout_constraintStart_toStartOf="@id/login_button"
+        app:layout_constraintTop_toBottomOf="@id/login_button"
+        android:layout_marginTop="48dp"
+        android:layout_marginStart="24dp"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:id="@+id/sign_upTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign UP"
+        android:textAllCaps="true"
+        android:textSize="16sp"
+        android:typeface="serif"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/dont_have_account"
+        app:layout_constraintTop_toTopOf="@id/dont_have_account"
+        app:layout_constraintBottom_toBottomOf="@id/dont_have_account"
+        android:layout_marginStart="30dp"
+        android:textColor="#00A79B"
+        android:visibility="gone"
+        />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".3" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"

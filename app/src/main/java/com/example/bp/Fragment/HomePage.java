@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
@@ -47,7 +49,6 @@ public class HomePage extends Fragment implements ProgressbarListner {
 
     private FragmentHomePageBinding binding;
     private ShowDepositAdapter adapter;
-    private List<User> users = new ArrayList<>();
     private HomeViewModel homeViewModel;
     private double totalExpences = 0,totalMill = 0,millRate = 0,totalUserBalance=0.0,currentBalance=0.0;
 
@@ -75,6 +76,18 @@ public class HomePage extends Fragment implements ProgressbarListner {
                     totalExpences += Double.parseDouble(exp.getAmount());
                 }
                 getUserData();
+            }
+        });
+
+        binding.drawerIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DrawerLayout drawerLayout= requireActivity().findViewById(R.id.nav_drawer_layout);
+                if (drawerLayout.isDrawerOpen(GravityCompat.START)){
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                }else {
+                    drawerLayout.openDrawer(GravityCompat.START);
+                }
             }
         });
 

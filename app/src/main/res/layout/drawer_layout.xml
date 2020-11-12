@@ -33,7 +33,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
-            android:text="Guest"
+            android:text="Admin"
             android:textSize="15sp"
             android:maxLines="1"
             android:ellipsize="end"
@@ -47,7 +47,7 @@
             android:id="@+id/navigation_user_signin_signup_logo"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:background="@drawable/ic_user_logo"
+            android:background="@drawable/ic_admin"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -151,7 +151,7 @@
             android:id="@+id/home_txt"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:background="@drawable/ic_user_logo"
+            android:background="@drawable/ic_home"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             />
@@ -170,7 +170,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/home_layout"
-        android:visibility="gone"
         >
 
         <TextView
@@ -190,16 +189,15 @@
             android:id="@+id/deposit_txt"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:background="@drawable/ic_user_logo"
+            android:background="@drawable/ic_trending_up"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/set_mill_layout"
+        android:id="@+id/expences_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -210,27 +208,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/deposit_layout"
-        android:visibility="gone"
         >
 
         <TextView
-            android:id="@+id/set_mill_id"
+            android:id="@+id/expences__id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:text="Set Mill"
+            android:text="Expences"
             android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="@id/set_mill_txt"
-            app:layout_constraintStart_toEndOf="@+id/set_mill_txt"
-            app:layout_constraintTop_toTopOf="@id/set_mill_txt"
+            app:layout_constraintBottom_toBottomOf="@id/expences_txt"
+            app:layout_constraintStart_toEndOf="@+id/expences_txt"
+            app:layout_constraintTop_toTopOf="@id/expences_txt"
             />
 
         <ImageView
-            android:id="@+id/set_mill_txt"
+            android:id="@+id/expences_txt"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:background="@drawable/ic_user_logo"
+            android:background="@drawable/ic_trending_down"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             />
@@ -238,7 +235,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/set_bazar_layout"
+        android:id="@+id/mill_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -248,28 +245,27 @@
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/set_mill_layout"
-        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/expences_layout"
         >
 
         <TextView
-            android:id="@+id/set_bazar_id"
+            android:id="@+id/mill__id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:text="Set Bazar"
+            android:text="Total Mill"
             android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="@id/set_bazar_txt"
-            app:layout_constraintStart_toEndOf="@+id/set_bazar_txt"
-            app:layout_constraintTop_toTopOf="@id/set_bazar_txt"
+            app:layout_constraintBottom_toBottomOf="@id/mill_txt_"
+            app:layout_constraintStart_toEndOf="@+id/mill_txt_"
+            app:layout_constraintTop_toTopOf="@id/mill_txt_"
             />
 
         <ImageView
-            android:id="@+id/set_bazar_txt"
+            android:id="@+id/mill_txt_"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:background="@drawable/ic_user_logo"
+            android:background="@drawable/ic_fastfood"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             />
@@ -277,41 +273,167 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/pdf_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/set_bazar_layout"
+        app:layout_constraintTop_toBottomOf="@id/mill_layout"
+        android:id="@+id/admin_layout"
+        android:visibility="gone"
         >
 
-        <TextView
-            android:id="@+id/pdf_text_id"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/set_deposit_layout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:text="PDF"
-            android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="@id/pdf_image_id"
-            app:layout_constraintStart_toEndOf="@+id/pdf_image_id"
-            app:layout_constraintTop_toTopOf="@id/pdf_image_id"
-            />
-
-        <ImageView
-            android:id="@+id/pdf_image_id"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:background="@drawable/ic_user_logo"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            />
+            >
 
+            <TextView
+                android:id="@+id/set_mill_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:text="Set Deposit"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@id/set_mill_txt"
+                app:layout_constraintStart_toEndOf="@+id/set_mill_txt"
+                app:layout_constraintTop_toTopOf="@id/set_mill_txt"
+                />
+
+            <ImageView
+                android:id="@+id/set_mill_txt"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@drawable/ic_user_logo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/set_mill_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/set_deposit_layout"
+            >
+
+            <TextView
+                android:id="@+id/mill_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:text="Set Mill"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@id/mill_txt"
+                app:layout_constraintStart_toEndOf="@+id/mill_txt"
+                app:layout_constraintTop_toTopOf="@id/mill_txt"
+                />
+
+            <ImageView
+                android:id="@+id/mill_txt"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@drawable/ic_user_logo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/set_bazar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/set_mill_layout"
+            >
+
+            <TextView
+                android:id="@+id/set_bazar_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:text="Set Expences"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@id/set_bazar_txt"
+                app:layout_constraintStart_toEndOf="@+id/set_bazar_txt"
+                app:layout_constraintTop_toTopOf="@id/set_bazar_txt"
+                />
+
+            <ImageView
+                android:id="@+id/set_bazar_txt"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@drawable/ic_user_logo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/pdf_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/set_bazar_layout"
+            >
+
+            <TextView
+                android:id="@+id/pdf_text_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:text="PDF"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@id/pdf_image_id"
+                app:layout_constraintStart_toEndOf="@+id/pdf_image_id"
+                app:layout_constraintTop_toTopOf="@id/pdf_image_id"
+                />
+
+            <ImageView
+                android:id="@+id/pdf_image_id"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@drawable/ic_user_logo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

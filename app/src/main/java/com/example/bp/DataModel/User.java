@@ -63,4 +63,12 @@ public class User {
     public Map<String, String> getDeposits() {
         return deposits;
     }
+
+    public void setMills(Map<String, String> mills) {
+        this.mills = mills;
+    }
+
+    public void setDeposits(Map<String, String> deposits) {
+        this.deposits = deposits;
+    }
 }
