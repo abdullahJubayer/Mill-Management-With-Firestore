@@ -4,65 +4,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homePage">
+    app:startDestination="@id/loginFragment">
+
 
     <fragment
         android:id="@+id/homePage"
         android:name="com.example.bp.Fragment.HomePage"
-        android:label="Home"
-        tools:layout="@layout/fragment_home_page" >
-        <action
-            android:id="@+id/action_homePage_to_depositFragment2"
-            app:destination="@id/depositFragment" />
-        <action
-            android:id="@+id/action_homePage_to_setTodayBazar"
-            app:destination="@id/setTodayBazar" />
-        <action
-            android:id="@+id/action_homePage_to_showDepositExpenceFragment"
-            app:destination="@id/showDepositExpenceFragment" />
-        <action
-            android:id="@+id/action_homePage_to_showMillFragment"
-            app:destination="@id/showMillFragment" />
-        <action
-            android:id="@+id/action_homePage_to_loginFragment"
-            app:destination="@id/loginFragment" />
-    </fragment>
+        android:label="fragment_home_page"
+        tools:layout="@layout/fragment_home_page" />
     <fragment
-        android:id="@+id/depositFragment"
-        android:name="com.example.bp.Fragment.SetDepositFragment"
-        android:label="Deposit"
-        tools:layout="@layout/fragment_set_deposit" />
+        android:id="@+id/fragmentShowDeposit"
+        android:name="com.example.bp.Fragment.FragmentShowDeposit"
+        android:label="fragment_show_deposit"
+        tools:layout="@layout/fragment_show_deposit" />
     <fragment
-        android:id="@+id/setTodayBazar"
-        android:name="com.example.bp.Fragment.SetTodayBazar"
-        android:label="Today Bazar"
-        tools:layout="@layout/fragment_set_today_bazar" >
-        <action
-            android:id="@+id/action_setTodayBazar_to_setMillFragment"
-            app:destination="@id/setMillFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/setMillFragment"
-        android:name="com.example.bp.Fragment.SetMillFragment"
-        android:label="Today Mill"
-        tools:layout="@layout/fragment_set_mill" />
-    <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.example.bp.Fragment.LoginFragment"
-        android:label="Log In"
-        tools:layout="@layout/fragment_login" >
-        <action
-            android:id="@+id/action_loginFragment_to_homePage"
-            app:destination="@id/homePage" />
-    </fragment>
-    <fragment
-        android:id="@+id/showDepositExpenceFragment"
-        android:name="com.example.bp.Fragment.ShowDepositExpenceFragment"
-        android:label="History"
-        tools:layout="@layout/fragment_show_deposit_expence" />
+        android:id="@+id/showExpenceFragment"
+        android:name="com.example.bp.Fragment.ShowExpenceFragment"
+        android:label="ShowExpenceFragment" />
     <fragment
         android:id="@+id/showMillFragment"
         android:name="com.example.bp.Fragment.ShowMillFragment"
-        android:label="Mill"
-        tools:layout="@layout/fragment_show_mill_fragment" />
+        android:label="fragment_show_mill"
+        tools:layout="@layout/fragment_show_mill" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.bp.Fragment.LoginFragment"
+        android:label="LoginFragment" />
 </navigation>

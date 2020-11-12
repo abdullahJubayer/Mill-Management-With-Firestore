@@ -33,7 +33,6 @@ public class ContainerPage extends AppCompatActivity {
 
     private ContainerPageBinding binding;
     private NavController navController;
-    private AppBarConfiguration appBarConfiguration;
     private FirebaseFirestore db ;
 
 
@@ -45,9 +44,8 @@ public class ContainerPage extends AppCompatActivity {
         db= FirebaseFirestore.getInstance();
 
         navController= Navigation.findNavController(this, R.id.nav_host_fragment);
-        appBarConfiguration=new AppBarConfiguration.Builder(new int[]{R.id.homePage,R.id.depositFragment}).setOpenableLayout(binding.navDrawerLayout).build();
         NavigationUI.setupWithNavController(binding.drawerNavigation,navController);
-        NavigationUI.setupWithNavController(binding.toolbar, navController,appBarConfiguration);
+        NavigationUI.setupWithNavController(binding.bottomNavigation,navController);
 
         binding.drawerItem.homeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,52 +54,53 @@ public class ContainerPage extends AppCompatActivity {
                 drawerHandler();
             }
         });
-        binding.drawerItem.depositLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                navController.navigate(R.id.depositFragment);
-                drawerHandler();
-            }
-        });
-        binding.drawerItem.setMillLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                navController.navigate(R.id.setMillFragment);
-                drawerHandler();
-            }
-        });
-        binding.drawerItem.setBazarLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                navController.navigate(R.id.setTodayBazar);
-                drawerHandler();
-            }
-        });
 
-        binding.drawerItem.loginLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                navController.navigate(R.id.action_homePage_to_loginFragment);
-                drawerHandler();
-            }
-        });
-        binding.drawerItem.pdfLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(),PDFActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                getApplicationContext().startActivity(intent);
-                drawerHandler();
-            }
-        });
-        binding.drawerItem.logoutLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MySharedPreference.getInstance(ContainerPage.this).edit().clear().apply();
-                Toast.makeText(ContainerPage.this, "Log Out", Toast.LENGTH_SHORT).show();
-                drawerHandler();
-            }
-        });
+//        binding.drawerItem.depositLayout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                navController.navigate(R.id.depositFragment);
+//                drawerHandler();
+//            }
+//        });
+//        binding.drawerItem.setMillLayout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                navController.navigate(R.id.setMillFragment);
+//                drawerHandler();
+//            }
+//        });
+//        binding.drawerItem.setBazarLayout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                navController.navigate(R.id.setTodayBazar);
+//                drawerHandler();
+//            }
+//        });
+//
+//        binding.drawerItem.loginLayout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                navController.navigate(R.id.action_homePage_to_loginFragment);
+//                drawerHandler();
+//            }
+//        });
+//        binding.drawerItem.pdfLayout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent=new Intent(getApplicationContext(),PDFActivity.class);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                getApplicationContext().startActivity(intent);
+//                drawerHandler();
+//            }
+//        });
+//        binding.drawerItem.logoutLayout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                MySharedPreference.getInstance(ContainerPage.this).edit().clear().apply();
+//                Toast.makeText(ContainerPage.this, "Log Out", Toast.LENGTH_SHORT).show();
+//                drawerHandler();
+//            }
+//        });
 
         final EventListener<QuerySnapshot> admin=new EventListener<QuerySnapshot>() {
             @Override

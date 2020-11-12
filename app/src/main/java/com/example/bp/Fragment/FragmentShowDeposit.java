@@ -15,32 +15,34 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
+import com.example.bp.Adapter.Deposit;
+import com.example.bp.Adapter.HomeRecyclerAdapter;
 import com.example.bp.Adapter.RecyclerAdapterWithMap;
 import com.example.bp.Adapter.ShowDepositAdapter;
 import com.example.bp.DataModel.Expences;
-import com.example.bp.DataModel.Mill;
 import com.example.bp.DataModel.RecyclerModel;
 import com.example.bp.DataModel.User;
 import com.example.bp.Listener.ProgressbarListner;
 import com.example.bp.ViewModel.HomeViewModel;
-import com.example.bp.databinding.FragmentShowMillBinding;
-
+import com.example.bp.databinding.FragmentShowDepositBinding;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 
-public class ShowMillFragment extends Fragment implements ProgressbarListner {
+public class FragmentShowDeposit extends Fragment implements ProgressbarListner {
 
-    private FragmentShowMillBinding binding;
+    private FragmentShowDepositBinding binding;
     private HomeViewModel homeViewModel;
-    private double totalExpences = 0, totalMill =0.0;
+    private double totalExpences = 0,totalUserBalance=0.0;
     private ShowDepositAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentShowMillBinding.inflate(inflater, container, false);
+        binding = FragmentShowDepositBinding.inflate(inflater, container, false);
         homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
         return binding.getRoot();
     }
@@ -63,15 +65,15 @@ public class ShowMillFragment extends Fragment implements ProgressbarListner {
         homeViewModel.getUserList(this).observe(getViewLifecycleOwner(), new Observer<List<User>>() {
             @Override
             public void onChanged(List<User> users) {
-                totalMill =0.0;
+                totalUserBalance=0.0;
                 for (User u:users){
-                    for (String b:u.getMills().values()){
-                        totalMill +=Double.parseDouble(b);
+                    for (String b:u.getDeposits().values()){
+                        totalUserBalance+=Double.parseDouble(b);
                     }
                 }
 
-                binding.banalceId.setText(String.valueOf("$ "+ totalMill));
-                binding.expencesRate.setText("$ "+(totalExpences/totalMill));
+                binding.banalceId.setText(String.valueOf("$ "+totalUserBalance));
+                binding.expencesRate.setText("$ "+totalExpences);
                 setRecyclerData(users);
                 setDropDown(users);
             }
@@ -84,11 +86,11 @@ public class ShowMillFragment extends Fragment implements ProgressbarListner {
         for (User u:users){
             RecyclerModel model=new RecyclerModel();
             model.setData(u.getName());
-            double mill=0.0;
-            for (String b:u.getMills().values()){
-                mill+=Double.parseDouble(b);
+            double balance=0.0;
+            for (String b:u.getDeposits().values()){
+                balance+=Double.parseDouble(b);
             }
-            model.setValue("$ "+mill);
+            model.setValue("$ "+balance);
             models.add(model);
         }
 
@@ -109,12 +111,12 @@ public class ShowMillFragment extends Fragment implements ProgressbarListner {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if (binding.selectedUserId.getSelectedItemPosition() !=0){
-                    double userMills=0.0;
-                    for (String m:users.get(i-1).getMills().values()){
-                        userMills+=Double.parseDouble(m);
+                    double deposit=0.0;
+                    for (String d:users.get(i-1).getDeposits().values()){
+                        deposit+=Double.parseDouble(d);
                     }
-                    binding.currentUserBalanceAmount.setText("$ "+userMills);
-                    setRecyclerView(users.get(i-1).getMills());
+                    binding.currentUserBalanceAmount.setText("$ "+deposit);
+                    setRecyclerView(users.get(i-1).getDeposits());
                 }
             }
 

@@ -1,5 +1,6 @@
 package com.example.bp.DataModel;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -8,9 +9,19 @@ public class User {
     private String name;
     private String balance;
     private double mill;
-    private List<Mill> mills;
+    private Map<String,String> mills;
+    private Map<String,String> deposits;
 
-    public User() {
+    public User (){
+
+    }
+
+
+    public User(String email, String name, Map<String, String> mills, Map<String, String> deposits) {
+        this.email = email;
+        this.name = name;
+        this.mills = mills;
+        this.deposits = deposits;
     }
 
     public String getEmail() {
@@ -45,11 +56,11 @@ public class User {
         this.mill = mill;
     }
 
-    public List<Mill> getMills() {
+    public Map<String, String> getMills() {
         return mills;
     }
 
-    public void setMills(List<Mill> mills) {
-        this.mills = mills;
+    public Map<String, String> getDeposits() {
+        return deposits;
     }
 }

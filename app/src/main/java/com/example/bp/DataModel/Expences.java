@@ -5,6 +5,7 @@ public class Expences {
     private String email;
     private String date;
     private String amount;
+    private String totalExpences;
 
     public Expences() {
     }
@@ -46,5 +47,13 @@ public class Expences {
 
     public void setAmount(String amount) {
         this.amount = amount;
+    }
+
+    public String getTotalExpences() {
+        return totalExpences;
+    }
+
+    public void setTotalExpences(String totalExpences) {
+        this.totalExpences = totalExpences;
     }
 }

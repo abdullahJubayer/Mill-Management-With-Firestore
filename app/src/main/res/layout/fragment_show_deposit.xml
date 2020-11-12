@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    tools:context=".Fragment.HomePage">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragment.FragmentShowDeposit">
 
 
     <ImageView
@@ -19,15 +18,6 @@
         android:layout_marginTop="24dp"
         />
 
-    <ImageView
-        android:id="@+id/profile_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@id/card_layout"
-        app:layout_constraintTop_toTopOf="@id/drawer_icon"
-        android:src="@drawable/ic_profile"
-        />
-
 
     <TextView
         android:id="@+id/welcome_id"
@@ -35,11 +25,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
-        android:text="Current Balance"
+        android:text="Total Deposit"
         android:textSize="18sp"
         android:typeface="serif"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/drawer_icon" />
+
     <TextView
         android:id="@+id/banalce_id"
         android:layout_width="wrap_content"
@@ -51,6 +42,19 @@
         app:layout_constraintStart_toStartOf="@id/welcome_id"
         app:layout_constraintTop_toBottomOf="@id/welcome_id"
         />
+
+    <Spinner
+        android:id="@+id/selected_user_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:textSize="18sp"
+        android:typeface="serif"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/drawer_icon" />
+
 
 
     <com.google.android.material.card.MaterialCardView
@@ -87,12 +91,12 @@
                     android:id="@+id/overview_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Mill Rate"
+                    android:text="Total Expences"
                     android:textSize="18sp"
                     android:typeface="serif" />
 
                 <TextView
-                    android:id="@+id/mill_rate"
+                    android:id="@+id/expences_rate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="$ 30.00"
@@ -115,22 +119,22 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:id="@+id/total_mill_txt"
+                    android:id="@+id/current_user_balance_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Total Mill"
+                    android:text="Your Deposit"
                     android:textSize="18sp"
                     android:typeface="serif" />
 
                 <TextView
-                    android:id="@+id/total_mill"
+                    android:id="@+id/current_user_balance_amount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="31"
+                    android:text="$ 00.0"
                     android:textSize="26sp"
                     android:typeface="serif"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/overview_txt" />
+                     />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <View
@@ -152,13 +156,14 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
+
     <TextView
         android:id="@+id/user_current_balance_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
-        android:text="User Current Balance"
+        android:text="All Deposit"
         android:textSize="18sp"
         android:typeface="serif"
         app:layout_constraintStart_toStartOf="parent"
@@ -176,16 +181,15 @@
         app:layout_constraintStart_toStartOf="@id/card_layout"
         app:layout_constraintTop_toBottomOf="@id/user_current_balance_txt"
         tools:listitem="@layout/home_recycler_item_design" />
-
-
     <ProgressBar
         android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
