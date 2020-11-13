@@ -18,9 +18,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
 import com.example.bp.Adapter.RecyclerAdapterWithMap;
-import com.example.bp.Adapter.ShowDepositAdapter;
+import com.example.bp.Adapter.RecyclerAdapter;
 import com.example.bp.DataModel.Expences;
-import com.example.bp.DataModel.Mill;
 import com.example.bp.DataModel.RecyclerModel;
 import com.example.bp.DataModel.User;
 import com.example.bp.Listener.ProgressbarListner;
@@ -38,7 +37,7 @@ public class ShowMillFragment extends Fragment implements ProgressbarListner {
     private FragmentShowMillBinding binding;
     private HomeViewModel homeViewModel;
     private double totalExpences = 0, totalMill =0.0;
-    private ShowDepositAdapter adapter;
+    private RecyclerAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -142,7 +141,7 @@ public class ShowMillFragment extends Fragment implements ProgressbarListner {
     }
 
     private void setRecyclerView(List<RecyclerModel> models){
-        adapter = new ShowDepositAdapter(models);
+        adapter = new RecyclerAdapter(models);
         binding.homeRecyclerView.setHasFixedSize(true);
         binding.homeRecyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
         binding.homeRecyclerView.setAdapter(adapter);
@@ -163,11 +162,11 @@ public class ShowMillFragment extends Fragment implements ProgressbarListner {
 
     @Override
     public void showProgress() {
-        binding.progressBar.setVisibility(View.VISIBLE);
+      //  binding.progressBar.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideProgress() {
-        binding.progressBar.setVisibility(View.GONE);
+       // binding.progressBar.setVisibility(View.GONE);
     }
 }

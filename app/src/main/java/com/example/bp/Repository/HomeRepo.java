@@ -47,7 +47,7 @@ public class HomeRepo {
                         String name=doc.getString("name") ==null?"":doc.getString("name");
                         String email=doc.getString("email") ==null?"":doc.getString("email");
                         Map<String,String> mills= (doc.get("mills") ==null?new HashMap<String,String>() : (Map<String, String>) doc.get("mills"));
-                        Map<String,String> deposit= (doc.get("balance") ==null?new HashMap<String,String>():(Map<String, String>) doc.get("balance"));
+                        Map<String,String> deposit= (doc.get("deposits") ==null?new HashMap<String,String>():(Map<String, String>) doc.get("deposits"));
                         users.add(new User(email,name,mills,deposit));
                     }
                 }
@@ -71,21 +71,19 @@ public class HomeRepo {
                     return;
                 }
                 for (QueryDocumentSnapshot doc : value) {
-                    if (doc != null) {
                         String name=doc.getString("name") ==null?"":doc.getString("name");
                         String email=doc.getString("email") ==null?"":doc.getString("email");
                         String date=doc.getString("date") ==null?"":doc.getString("date");
                         String amount=doc.getString("amount") ==null?"":doc.getString("amount");
                         Expences exp=new Expences(name,email,date,amount);
                         expences.add(exp);
-                    }
-                    expenceLiveData.setValue(expences);
                 }
+                expenceLiveData.setValue(expences);
                 progressbarListner.hideProgress();
             }
         };
 
-        db.collection("Expences").addSnapshotListener(memberListner);
+        db.collection("Bazar").addSnapshotListener(memberListner);
         return expenceLiveData;
     }
 }

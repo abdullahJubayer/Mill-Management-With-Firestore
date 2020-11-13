@@ -1,6 +1,8 @@
 package com.example.bp.Fragment;
 
 import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -31,6 +33,7 @@ import com.example.bp.util.PassDate;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -90,13 +93,16 @@ public class SetTodayBazar extends DialogFragment implements ProgressbarListner 
         binding.toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
+
                 if (item.getItemId()==R.id.action_save){
-                    String name=binding.selectedDepositor.getSelectedItem().toString();
-                    String email=binding.depositorEmail.getText().toString();
-                    String date=binding.depositDate.getText().toString();
-                    String amount=binding.amountEt.getText().toString();
 
-
+                    final String name=binding.selectedDepositor.getSelectedItem().toString();
+                    final String email=binding.depositorEmail.getText().toString();
+                    final String date=binding.depositDate.getText().toString();
+                    final String amount=binding.amountEt.getText().toString();
+                    showConformationDialog(requireContext(), "You Are Saving :: Name: " + name + " " + "Amount :" + amount+"  for Date:"+date, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(final DialogInterface dialogInterface, int i) {
                             if (name != null)
                                 if (date != null)
                                     if (amount !=null){
@@ -107,13 +113,20 @@ public class SetTodayBazar extends DialogFragment implements ProgressbarListner 
                                             public void onSuccess(Void aVoid) {
                                                 showSnackbar("Data save",false);
                                                 Navigation.findNavController(binding.rootLayout).popBackStack();
+                                                dialogInterface.dismiss();
                                             }
                                         });
                                     }
                                     else showSnackbar("Amount Null",true);
                                 else showSnackbar("Date Null",true);
                             else showSnackbar("Name Null",true);
-
+                        }
+                    }, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    });
                 }
                 return true;
             }
@@ -177,6 +190,14 @@ public class SetTodayBazar extends DialogFragment implements ProgressbarListner 
         snackbar.show();
     }
 
+    private void showConformationDialog(Context context, String message, DialogInterface.OnClickListener positive, DialogInterface.OnClickListener negative) {
+        new MaterialAlertDialogBuilder(context)
+                .setTitle("Are You Sure ?")
+                .setMessage(message)
+                .setCancelable(false)
+                .setPositiveButton("Ok" ,positive)
+                .setNegativeButton("No",negative).show();
+    }
 
     @Override
     public void showProgress() {

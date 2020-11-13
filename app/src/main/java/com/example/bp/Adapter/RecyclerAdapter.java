@@ -9,27 +9,26 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bp.DataModel.RecyclerModel;
-import com.example.bp.DataModel.User;
 import com.example.bp.R;
 
 import java.util.List;
 
-public class ShowDepositAdapter extends RecyclerView.Adapter<ShowDepositAdapter.DepositRecyclerViewHolder> {
+public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.DepositRecyclerViewHolder> {
     private List<RecyclerModel> models;
 
-    public ShowDepositAdapter(List<RecyclerModel> models) {
+    public RecyclerAdapter(List<RecyclerModel> models) {
         this.models = models;
     }
 
     @NonNull
     @Override
-    public ShowDepositAdapter.DepositRecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RecyclerAdapter.DepositRecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.home_recycler_item_design, parent, false);
-        return new ShowDepositAdapter.DepositRecyclerViewHolder(v);
+        return new RecyclerAdapter.DepositRecyclerViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final ShowDepositAdapter.DepositRecyclerViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final RecyclerAdapter.DepositRecyclerViewHolder holder, final int position) {
         //for show mill
         holder.name.setText(models.get(position).getData());
         holder.userBalance.setText(models.get(position).getValue());

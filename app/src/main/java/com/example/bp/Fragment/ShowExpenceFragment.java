@@ -7,23 +7,15 @@ import androidx.annotation.Nullable;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Toast;
 
-import com.example.bp.Adapter.Deposit;
-import com.example.bp.Adapter.HomeRecyclerAdapter;
-import com.example.bp.Adapter.RecyclerAdapterWithMap;
-import com.example.bp.Adapter.ShowDepositAdapter;
+import com.example.bp.Adapter.RecyclerAdapter;
 import com.example.bp.DataModel.Expences;
 import com.example.bp.DataModel.RecyclerModel;
 import com.example.bp.DataModel.User;
@@ -31,25 +23,16 @@ import com.example.bp.Listener.ProgressbarListner;
 import com.example.bp.R;
 import com.example.bp.ViewModel.HomeViewModel;
 import com.example.bp.databinding.FragmentShowExpenceBinding;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.EventListener;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class ShowExpenceFragment extends Fragment implements ProgressbarListner {
 
     private FragmentShowExpenceBinding binding;
     private HomeViewModel homeViewModel;
     private double totalExpences = 0,totalUserBalance=0.0;
-    private ShowDepositAdapter adapter;
+    private RecyclerAdapter adapter;
 
 
     @Override
@@ -115,7 +98,7 @@ public class ShowExpenceFragment extends Fragment implements ProgressbarListner 
     }
 
     private void setRecyclerView(List<RecyclerModel> models){
-        adapter = new ShowDepositAdapter(models);
+        adapter = new RecyclerAdapter(models);
         binding.homeRecyclerView.setHasFixedSize(true);
         binding.homeRecyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
         binding.homeRecyclerView.setAdapter(adapter);
@@ -129,11 +112,11 @@ public class ShowExpenceFragment extends Fragment implements ProgressbarListner 
 
     @Override
     public void showProgress() {
-        binding.progressBar.setVisibility(View.VISIBLE);
+       // binding.progressBar.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideProgress() {
-        binding.progressBar.setVisibility(View.GONE);
+       // binding.progressBar.setVisibility(View.GONE);
     }
 }

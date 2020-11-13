@@ -47,6 +47,15 @@ public class LoginFragment extends Fragment {
     private FirebaseFirestore db ;
 
     @Override
+    public void onStart() {
+        super.onStart();
+        FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null){
+            Navigation.findNavController(binding.rootLayout).navigate(R.id.homePage);
+        }
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }

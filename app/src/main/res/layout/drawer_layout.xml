@@ -40,7 +40,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/navigation_user_signin_signup_logo"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/logout_layout"
+            app:layout_constraintEnd_toStartOf="@id/login_layout"
             />
 
         <ImageView

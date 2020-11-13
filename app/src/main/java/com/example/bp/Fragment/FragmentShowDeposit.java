@@ -17,10 +17,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
-import com.example.bp.Adapter.Deposit;
-import com.example.bp.Adapter.HomeRecyclerAdapter;
 import com.example.bp.Adapter.RecyclerAdapterWithMap;
-import com.example.bp.Adapter.ShowDepositAdapter;
+import com.example.bp.Adapter.RecyclerAdapter;
 import com.example.bp.DataModel.Expences;
 import com.example.bp.DataModel.RecyclerModel;
 import com.example.bp.DataModel.User;
@@ -28,8 +26,7 @@ import com.example.bp.Listener.ProgressbarListner;
 import com.example.bp.R;
 import com.example.bp.ViewModel.HomeViewModel;
 import com.example.bp.databinding.FragmentShowDepositBinding;
-import com.google.firebase.firestore.EventListener;
-import com.google.firebase.firestore.QuerySnapshot;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -40,7 +37,7 @@ public class FragmentShowDeposit extends Fragment implements ProgressbarListner 
     private FragmentShowDepositBinding binding;
     private HomeViewModel homeViewModel;
     private double totalExpences = 0,totalUserBalance=0.0;
-    private ShowDepositAdapter adapter;
+    private RecyclerAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -144,7 +141,7 @@ public class FragmentShowDeposit extends Fragment implements ProgressbarListner 
     }
 
     private void setRecyclerView(List<RecyclerModel> models){
-        adapter = new ShowDepositAdapter(models);
+        adapter = new RecyclerAdapter(models);
         binding.homeRecyclerView.setHasFixedSize(true);
         binding.homeRecyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
         binding.homeRecyclerView.setAdapter(adapter);
@@ -165,11 +162,11 @@ public class FragmentShowDeposit extends Fragment implements ProgressbarListner 
 
     @Override
     public void showProgress() {
-        binding.progressBar.setVisibility(View.VISIBLE);
+        //binding.progressBar.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideProgress() {
-        binding.progressBar.setVisibility(View.GONE);
+       // binding.progressBar.setVisibility(View.GONE);
     }
 }
