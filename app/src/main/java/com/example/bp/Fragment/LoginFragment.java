@@ -37,6 +37,8 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static com.example.bp.MySharedPreferences.MySharedPreference.admin;
 
@@ -50,7 +52,7 @@ public class LoginFragment extends Fragment {
     public void onStart() {
         super.onStart();
         FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null){
+        if (user != null && user.isEmailVerified()){
             Navigation.findNavController(binding.rootLayout).navigate(R.id.homePage);
         }
     }
@@ -116,7 +118,9 @@ public class LoginFragment extends Fragment {
         String pass = binding.passEt.getText().toString();
 
         if (validateEmail(email) && !name.replaceAll(" ","").isEmpty())
+        {
             if (validatePassword(pass))
+            {
                 mAuth.createUserWithEmailAndPassword(email, pass)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
@@ -139,21 +143,29 @@ public class LoginFragment extends Fragment {
                                                 }
                                             });
                                 } else {
+                                    setSignUpLayout(R.layout.fragment_login);
                                     showSnackbar("Error !",true);
                                 }
                             }
                         });
-            else showSnackbar("Password Not Valid!",true);
-
-        else showSnackbar("Email Not Valid!",true);
+            }
+            else {
+                setSignUpLayout(R.layout.fragment_login);
+                showSnackbar("Password Not Valid!",true);
+            }
+        }else {
+            setSignUpLayout(R.layout.fragment_login);
+            showSnackbar("Email Not Valid!",true);
+        }
     }
 
     private void signIn(){
         String email = binding.emailEt.getText().toString();
         String pass = binding.passEt.getText().toString();
-        if (validateEmail(email))
+        if (validateEmail(email)){
             if (validatePassword(pass))
-                mAuth.signInWithEmailAndPassword(email, pass)
+            {
+                 mAuth.signInWithEmailAndPassword(email, pass)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -162,16 +174,29 @@ public class LoginFragment extends Fragment {
                                         Navigation.findNavController(binding.rootLayout).navigate(R.id.homePage);
                                         setSignUpLayout(R.layout.fragment_login);
                                     }else {
+                                        Log.e("SSSSS","L4");
+                                        setSignUpLayout(R.layout.fragment_login);
                                         showSnackbar("Email Not Verified",true);
                                     }
                                 } else {
+                                    Log.e("SSSSS","L3");
+                                    setSignUpLayout(R.layout.fragment_login);
                                     showSnackbar("Error !",true);
                                 }
                             }
                         });
-            else showSnackbar("Password Not Valid!",true);
-
-        else showSnackbar("Email Not Valid!",true);
+            }
+            else {
+                Log.e("SSSSS","L2");
+                setSignUpLayout(R.layout.fragment_login);
+                showSnackbar("Password Not Valid!",true);
+            }
+        }
+        else{
+            Log.e("SSSSS","L1");
+            setSignUpLayout(R.layout.fragment_login);
+            showSnackbar("Email Not Valid!",true);
+        }
     }
 
     private void showSnackbar(String s, boolean isError) {
@@ -191,12 +216,15 @@ public class LoginFragment extends Fragment {
     }
 
     private boolean validateEmail(String email) {
-        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-        return email.replaceAll(" ", "").matches(emailPattern) && email.replaceAll(" ", "").endsWith("@gmail.com");
+        String emailPattern = "^[A-Za-z0-9+_.-]+@(.+)$";
+        Pattern pattern = Pattern.compile(emailPattern);
+        Matcher matcher = pattern.matcher(email);
+
+        return !email.isEmpty() && matcher.matches() && email.endsWith("@gmail.com");
     }
 
     private boolean validatePassword(String pass) {
-        String passPattern = "^[A-Za-z0-9_.]+$";
+        String passPattern = "^[A-Za-z0-9_.*&%$@#]+$";
         return pass.matches(passPattern) && pass.length() >= 6;
     }
 
