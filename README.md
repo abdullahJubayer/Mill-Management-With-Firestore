@@ -14,7 +14,7 @@
 
 <!-- Second row -->
 <p align="center">
-  <img src="Screenshot_20201114-215940.png" alt="Image 4 Description" width="300">
+  <img src="Screenshot_20201114-220040.png" alt="Image 4 Description" width="300">
   <img src="Screenshot_20201114-215950.png" alt="Image 5 Description" width="300">
   <img src="Screenshot_20201114-215929.png" alt="Image 6 Description" width="300">
 </p>
